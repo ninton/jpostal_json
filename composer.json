@@ -1,0 +1,19 @@
+{
+    "name": "ninton.co.jp/jspotal_json",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Ninton\\JpostalJson\\": "src"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5"
+    },
+    "authors": [
+        {
+            "name": "aoki.makoto",
+            "email": "aoki_makoto@ninton.co.jp"
+        }
+    ],
+    "require": {}
+}
