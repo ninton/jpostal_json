@@ -7,6 +7,10 @@
  */
 namespace Ninton\JpostalJson;
 
+/**
+ * Class JpostalDb
+ * @package Ninton\JpostalJson
+ */
 class JpostalDb
 {
 	private $config = [];
@@ -15,6 +19,10 @@ class JpostalDb
 	private $city_kana_dict = [];
 	private $town_kana_dict = [];
 
+	/**
+	 * JpostalDb constructor.
+	 * @param array $config
+	 */
 	public function __construct(array $config)
 	{
 		$this->config = $config;
@@ -42,12 +50,19 @@ class JpostalDb
 		return $jpostal;
 	}
 
+	/**
+	 * 内部DBに追加する
+	 * @param Jpostal $jpostal
+	 */
 	public function add(Jpostal $jpostal)
 	{
 		$postcode3 = substr($jpostal->postcode, 0, 3);
 		$this->db[$postcode3][] = $jpostal;
 	}
 
+	/**
+	 * 町域の不要テキストを削除する
+	 */
 	public function trimTown()
 	{
 		foreach ($this->db as $postcode3 => $jpostal_arr) {
@@ -62,6 +77,10 @@ class JpostalDb
 		}
 	}
 
+	/**
+	 * jsonを保存する
+	 * @param string $json_dir
+	 */
 	public function save(string $json_dir)
 	{
 		foreach ($this->db as $postcode3 => $jpostal_arr) {
@@ -76,6 +95,9 @@ class JpostalDb
 		}
 	}
 
+	/**
+	 * 3桁用のレコードを作成する
+	 */
 	public function createPostcode3()
 	{
 		// 3桁の住所データを作る
@@ -115,6 +137,9 @@ class JpostalDb
 		return [$pref, $city];
 	}
 
+	/**
+	 * 県カナ、市カナ、町域カナが空欄なら、検索してきて埋める
+	 */
 	public function fillBlankKana()
 	{
 		foreach ($this->db as $postcode3 => $jpostal_arr) {
@@ -183,6 +208,9 @@ class JpostalDb
 		return '';
 	}
 
+	/**
+	 * json/*.jsonを jsonp形式に変換して保存する
+	 */
 	public function convertJsonp()
 	{
 		// jsonを読み込んで、関数名jQuery_jpostal_callback(でjsonp化して保存する

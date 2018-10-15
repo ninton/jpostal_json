@@ -1,6 +1,10 @@
 <?php
 namespace Ninton\JpostalJson;
 
+/**
+ * Class KenAll
+ * @package Ninton\JpostalJson
+ */
 class KenAll {
 	public $city_code;
 	public $postcode5;
@@ -18,6 +22,10 @@ class KenAll {
 	public $flag_5;
 	public $flag_6;
 
+	/**
+	 * KenAll constructor.
+	 * @param array $arr
+	 */
 	public function __construct(array $arr)
 	{
 		$this->city_code = $arr[0];
@@ -37,6 +45,10 @@ class KenAll {
 		$this->flag_6 = $arr[14];
 	}
 
+	/**
+	 * Jpsotalクラスのインスタンスを作成する
+	 * @return Jpostal
+	 */
 	function createJpostal()
 	{
 		$jpostal = new Jpostal();

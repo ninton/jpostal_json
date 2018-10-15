@@ -1,6 +1,10 @@
 <?php
 namespace Ninton\JpostalJson;
 
+/**
+ * Class Jpostal
+ * @package Ninton\JpostalJson
+ */
 class Jpostal {
 	public $postcode = '';
 	public $pref = '';
@@ -13,10 +17,17 @@ class Jpostal {
 	public $town_kana = '';
 	public $jigyosyo_name_kana = '';
 
+	/**
+	 * Jpostal constructor.
+	 */
 	public function __construct()
 	{
 	}
 
+	/**
+	 * テスト用
+	 * @return string
+	 */
 	public function __toString()
 	{
 		return $this->postcode
@@ -31,6 +42,10 @@ class Jpostal {
 			. $this->jigyosyo_name;
 	}
 
+	/**
+	 * json保存用の配列に変換する
+	 * @return array
+	 */
 	public function toArray()
 	{
 		return [
@@ -46,6 +61,9 @@ class Jpostal {
 		];
 	}
 
+	/**
+	 * 町域の不要テキストを削除する
+	 */
 	public function trimTown()
 	{
 		if ($this->town === '以下に掲載がない場合') {
@@ -82,6 +100,9 @@ class Jpostal {
 		}
 	}
 
+	/**
+	 * 町域カナの不要テキストを削除する
+	 */
 	public function trimTownKana()
 	{
 		if ($this->town_kana === 'ｲｶﾆｹｲｻｲｶﾞﾅｲﾊﾞｱｲ') {

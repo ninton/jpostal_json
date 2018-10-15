@@ -1,20 +1,26 @@
 <?php
 namespace Ninton\JpostalJson;
 
+/**
+ * Class Main
+ * @package Ninton\JpostalJson
+ */
 class Main
 {
 	private $config;
 
+	/**
+	 * Main constructor.
+	 * @param array $config
+	 */
 	public function __construct(array $config = [])
 	{
 		$this->config = $config;
 	}
 
-	public function add($a, $b)
-	{
-		return $a + $b;
-	}
-
+	/**
+	 * メイン処理
+	 */
 	public function run()
 	{
 		$this->jpostalDb = new JpostalDb($this->config);
@@ -29,6 +35,9 @@ class Main
 		$this->jpostalDb->save($this->config['json_dir']);
 	}
 
+	/**
+	 * json/*.jsonをjsonpに変換する
+	 */
 	public function jsonp()
 	{
 		$this->jpostalDb->convertJsonp();

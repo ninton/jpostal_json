@@ -4,11 +4,6 @@ namespace Ninton\JpostalJson;
 require_once(__DIR__ . '/../vendor/autoload.php');
 
 class MainTest extends \PHPUnit\Framework\TestCase {
-	public function test_smoke() {
-		$main = new Main();
-		$this->assertEquals(10, $main->Add(4, 6));
-	}
-
 	public function test_run() {
 		$config = [
 			'ken_all_csv'       => 'tests/fixtures/KEN_ALL.CSV',
