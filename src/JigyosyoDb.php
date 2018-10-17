@@ -26,8 +26,8 @@ class JigyosyoDb
 	public function load(string $path)
 	{
 		$fp = fopen($path, 'r');
-		while ($arr = fgetcsv($fp)) {
-			$jigyosyo = new Jigyosyo($arr);
+		for ($i = 0; $arr = fgetcsv($fp); $i += 1) {
+			$jigyosyo = new Jigyosyo($arr, $i);
 			$this->add($jigyosyo);
 		}
 		fclose($fp);

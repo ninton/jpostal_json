@@ -32,6 +32,7 @@ class Main
 		$this->importJigyosyo();
 		$this->jpostalDb->fillBlankKana();
 
+		$this->jpostalDb->sort();
 		$this->jpostalDb->save($this->config['json_dir']);
 	}
 

@@ -23,8 +23,8 @@ class KenAllDb
 	public function load(string $path)
 	{
 		$fp = fopen($path, 'r');
-		while ($arr = fgetcsv($fp)) {
-			$kenAll = new KenAll($arr);
+		for ($i = 0; $arr = fgetcsv($fp); $i += 1) {
+			$kenAll = new KenAll($arr, $i);
 			$this->add($kenAll);
 		}
 		fclose($fp);

@@ -6,6 +6,7 @@ namespace Ninton\JpostalJson;
  * @package Ninton\JpostalJson
  */
 class KenAll {
+	public $index;
 	public $city_code;
 	public $postcode5;
 	public $postcode;
@@ -24,10 +25,12 @@ class KenAll {
 
 	/**
 	 * KenAll constructor.
+	 * @param int $index
 	 * @param array $arr
 	 */
-	public function __construct(array $arr)
+	public function __construct(array $arr, $index)
 	{
+		$this->index = $index;
 		$this->city_code = $arr[0];
 		$this->postcode5 = $arr[1];
 		$this->postcode = $arr[2];
@@ -52,6 +55,7 @@ class KenAll {
 	function createJpostal()
 	{
 		$jpostal = new Jpostal();
+		$jpostal->index = $this->index;
 		$jpostal->postcode3 = substr($this->postcode, 0, 3);
 		$jpostal->postcode = $this->postcode;
 		$jpostal->pref = $this->pref;

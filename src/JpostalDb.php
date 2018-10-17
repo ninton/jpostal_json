@@ -93,7 +93,7 @@ class JpostalDb
 				return $jpostal->toArray();
 			}, $jpostal_arr);
 
-			$json = json_encode($out_arr, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+			$json = json_encode($out_arr);
 			file_put_contents($path, $json);
 		}
 	}
@@ -235,5 +235,38 @@ $data
 END;
 			file_put_contents($path, $jsonp_data);
 		}
+	}
+
+	/**
+	 * 郵便番号順にソートする
+	 */
+	public function sort()
+	{
+		foreach ($this->db as $postcode3 => $jpostal_arr) {
+			usort($jpostal_arr, [$this, 'cmpJpostal']);
+			$this->db[$postcode3] = $jpostal_arr;
+		}
+	}
+
+	private function cmpJpostal(Jpostal $a, Jpostal $b) {
+		/*
+		 * postcode	index
+		 * 0010001	-
+		 * 0010002	2
+		 * 0010002	4
+		 * 001		-
+		 */
+		$a_len = strlen($a->postcode);
+		$b_len = strlen($b->postcode);
+		if ($a_len != $b_len) {
+			return $b_len - $a_len;
+		}
+
+		$r = strcmp($a->postcode, $b->postcode);
+		if ($r != 0) {
+			return $r;
+		}
+
+		return $a->index - $b->index;
 	}
 }

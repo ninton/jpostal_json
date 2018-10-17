@@ -6,6 +6,7 @@ namespace Ninton\JpostalJson;
  * @package Ninton\JpostalJson
  */
 class Jigyosyo {
+	public $index;
 	public $city_code;
 	public $name_kana;
 	public $name;
@@ -22,10 +23,12 @@ class Jigyosyo {
 
 	/**
 	 * Jigyosyo constructor.
+	 * @param int $index
 	 * @param array $arr KEN_ALL_UTF8.CSVの1行
 	 */
-	public function __construct(array $arr)
+	public function __construct(array $arr, $index)
 	{
+		$this->index = $index;
 		$this->city_code = $arr[0];
 		$this->name_kana = $arr[1];
 		$this->name = $arr[2];
@@ -48,6 +51,7 @@ class Jigyosyo {
 	function createJpostal()
 	{
 		$jpostal = new Jpostal();
+		$jpostal->index = $this->index;
 		$jpostal->postcode3 = substr($this->postcode, 0, 3);
 		$jpostal->postcode = $this->postcode;
 		$jpostal->pref = $this->pref;
