@@ -38,7 +38,10 @@ class JpostalDb
 
 	private function create000info()
 	{
-		$version = file_get_contents($this->config['version_txt']);
+		$version = 'ver?.??';
+		if (file_exists($this->config['version_txt'])) {
+			$version = file_get_contents($this->config['version_txt']);
+		}
 		$fdate = strftime('%Y-%m-%d', filemtime($this->config['ken_all_csv']));
 		$today = strftime('%Y-%m-%d', time());
 
