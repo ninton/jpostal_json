@@ -109,6 +109,13 @@ class JpostalDb
 				continue;
 			}
 
+			if ($postcode3 === '000') {
+				$jpostal = new Jpostal();
+				$jpostal->postcode = $postcode3;
+				$this->add($jpostal);
+				continue;
+			}
+
 			list($pref, $city) = $this->mostPopularPrefCity($jpostal_arr);
 			$jpostal = new Jpostal();
 			$jpostal->postcode = $postcode3;
