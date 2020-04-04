@@ -1,5 +1,5 @@
 #!/bin/sh -ue
 
-cd docker
+cd jpostal_json.docker
 sudo docker-compose down
 cd ..
