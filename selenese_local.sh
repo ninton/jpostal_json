@@ -27,4 +27,4 @@ function test_run() {
 		$1
 }
 
-test_run jquery.jpostal.js/selenese/smoke_local.html
+test_run selenese/smoke_local.html
