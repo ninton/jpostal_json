@@ -3,6 +3,7 @@
 KEN_ALL_ZIP_URL="https://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip"
 JIGYOSYO_ZIP_URL="https://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip"
 
+mkdir --parent zips
 cd zips
 rm -rf *.CSV *.zip
 
