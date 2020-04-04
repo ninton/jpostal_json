@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  web:
+    tty: true
+    container_name: web.jpostal.docker
+    build: ./apache
+    ports:
+      - 9080:80
+    volumes:
+      - ../jquery.jpostal.js:/var/www/html:cached

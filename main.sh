@@ -8,6 +8,8 @@ composer install
 ./download_zip.sh
 ./git_pull_jquery_jpostal_js.sh
 
-#php main.php
+php main.php
 
-#cat ${JPOSTAL_JSON_DIR}/000.json
+
+./git_commit_jquery_jpostal_js.sh
+cat ${JPOSTAL_JSON_DIR}/000.json
