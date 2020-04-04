@@ -3,3 +3,4 @@ vendor/**
 zips/*
 config.sh
 jquery.jpostal.js
+testResults/*
