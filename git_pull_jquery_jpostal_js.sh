@@ -5,5 +5,5 @@ if [ ! -d jquery.jpostal.js ]; then
 fi
 
 cd jquery.jpostal.js
-git checkout master
-git pull origin master
+git checkout develop
+git pull origin develop
