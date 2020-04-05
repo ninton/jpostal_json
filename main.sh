@@ -5,7 +5,6 @@ composer --version
 docker-compose --version
 xvfb-run --help
 
-
 export JPOSTAL_VERSION_TXT=jquery.jpostal.js/version.txt
 export JPOSTAL_JSON_DIR=jquery.jpostal.js/json
 
@@ -18,9 +17,9 @@ php main.php
 cat jquery.jpostal.js/json/000.json
 
 ./docker-compose_up.sh
-./selenium_server_start.sh
+selenium_server_start.sh
 ./selenese_local.sh
-./selenium_server_stop.sh
+selenium_server_stop.sh
 ./docker-compose_down.sh
 
 errcnt=$(grep ERROR testResults/TEST-smoke_local.xml | wc --line)
