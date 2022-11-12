@@ -274,6 +274,10 @@ END;
 			return $r;
 		}
 
+		if ($a->type !== $b->type) {
+			return $a->type - $b->type;
+		}
+
 		return $a->index - $b->index;
 	}
 }

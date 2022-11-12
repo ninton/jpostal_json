@@ -42,6 +42,8 @@ class MainTest extends \PHPUnit\Framework\TestCase {
 		// 3桁
 		$this->assert_事業所();
 		$this->assert_notBlankKana();
+
+		$this->assert_issue53_9200381先頭は事業所ではないこと();
 	}
 
 	private function assert_000info() {
@@ -508,5 +510,19 @@ class MainTest extends \PHPUnit\Framework\TestCase {
 
 		$this->assertEquals(1, count($map['_0210102']));
 		$this->assertEquals($expected['_0210102'][0], $map['_0210102'][0]);
+	}
+
+	private function assert_issue53_9200381先頭は事業所ではないこと()
+	{
+		$data = file_get_contents('/tmp/jpostal_json/920.json');
+		$arr = json_decode($data);
+
+		$arr9200381 = array_values(array_filter($arr, function ($item) {
+			return $item[0] == '_9200381';
+		}));
+
+		$first = $arr9200381[0];
+		$this->assertTrue($first[4] === '');	// 先頭は事業所ではないこと
+		$this->assertTrue($first[5] === '');
 	}
 }

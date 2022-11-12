@@ -6,6 +6,7 @@ namespace Ninton\JpostalJson;
  * @package Ninton\JpostalJson
  */
 class Jpostal {
+	public $type = 0;
 	public $index = 0;
 	public $postcode = '';
 	public $pref = '';

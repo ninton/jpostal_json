@@ -55,6 +55,7 @@ class KenAll {
 	function createJpostal()
 	{
 		$jpostal = new Jpostal();
+		$jpostal->type = 0;
 		$jpostal->index = $this->index;
 		$jpostal->postcode3 = substr($this->postcode, 0, 3);
 		$jpostal->postcode = $this->postcode;
