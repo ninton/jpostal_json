@@ -1,8 +1,9 @@
 #!/bin/bash -uex
 
 /bin/rm -rf jquery.jpostal.js
-git clone git@github.com:ninton/jquery.jpostal.js.git
+# personal access tokenは httpsにしか使えない
+git clone https://ninton:$GITHUB_JQUERY_JPOSTAL_TOKEN@github.com/ninton/jquery.jpostal.js.git
 
 cd jquery.jpostal.js
-git branch develop origin/develop
+git branch develop
 git checkout develop
