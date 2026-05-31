@@ -1,7 +1,8 @@
 #!/bin/bash -ue
 
-KEN_ALL_ZIP_URL="https://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip"
-JIGYOSYO_ZIP_URL="https://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip"
+                 
+KEN_ALL_ZIP_URL="https://www.post.japanpost.jp/service/search/zipcode/download/kogaki/zip/ken_all.zip"
+JIGYOSYO_ZIP_URL="https://www.post.japanpost.jp/service/search/zipcode/download/office/zip/jigyosyo.zip"
 
 mkdir --parent zips
 cd zips
