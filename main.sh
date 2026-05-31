@@ -13,3 +13,5 @@ composer install
 
 php main.php
 cat jquery.jpostal.js/json/000.json
+
+chown --recursive 1000:1000 jquery.jpostal.js
